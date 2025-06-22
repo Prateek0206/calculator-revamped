@@ -13,8 +13,8 @@ function evaluateAnswer(num1, num2, operand) {
 
 const virtualCalc = document.querySelector(".js-virtual-calc");
 const displaySelector = document.querySelector(".js-display");
-const innerCalculatorSelector=document.querySelector('.js-inner-calculator')
-displaySelector.textContent='Number goes here'
+const innerCalculatorSelector = document.querySelector(".js-inner-calculator");
+displaySelector.textContent = "Number goes here";
 let input1 = "";
 let input2 = "";
 let operand = "";
@@ -25,6 +25,7 @@ let isMoreThan2Number = false;
 innerCalculatorSelector.addEventListener("click", (event) => {
   if (event.target.classList.contains("operator")) {
     if (input1 == "") {
+      console.log(input2)
       alert("First enter a number");
     } else {
       if (input2) {
@@ -47,10 +48,11 @@ innerCalculatorSelector.addEventListener("click", (event) => {
       displaySelector.textContent = input1;
       input1 = "";
       input2 = "";
-      operand = undefined;
-    }   
+      currentlyEvaluating = "";
+      operand = '';
+    }
   } else if (event.target.classList.contains("clear")) {
-    displaySelector.textContent='Number goes here'
+    displaySelector.textContent = "Number goes here";
     input1 = "";
     input2 = "";
     operand = "";
@@ -59,7 +61,7 @@ innerCalculatorSelector.addEventListener("click", (event) => {
     if (operand == "") {
       input1 += event.target.textContent.trim();
       console.log(`${input1}`);
-      currentlyEvaluating += event.target.textContent.trim()
+      currentlyEvaluating += event.target.textContent.trim();
       console.log(currentlyEvaluating);
       displaySelector.textContent = currentlyEvaluating;
     } else {
